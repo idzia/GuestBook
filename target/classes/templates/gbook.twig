@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Guest Book</title>
+    <link rel="stylesheet" href="static/css/style.css">
+    <script src="static/js/behavior.js"></script>
+
+</head>
+
+<body>
+<header>
+<div class="welcome">
+    <h1>Thanks for coming to my website</h1>
+    <h1>Leave your entry in the guest book</h1>
+</div>
+</header>
+
+
+<div class="content">
+
+    <h2>My guests were: </h2>
+    <table>
+     {% for message in messageList %}
+        <tr>
+        <td>
+            {{ message.getText() }}<br>{{ message.getDate() }}<br><br>
+            {{ message.getName() }}
+        </td>
+        </tr>
+        <br>
+        {% endfor %}
+    </table>
+
+    <form method="post">
+
+        <fieldset>
+
+            <legend> Write to me </legend>
+
+            <input id="message" type="text" name="message" placeholder="Your message" onkeyup="switchVisibility()" >
+
+            <br><br>
+
+            <input id="name" type="text" name="name" placeholder="Your name" onkeyup="switchVisibility()">
+
+            <br><br>
+
+            <input id="date" type="text" name="date" placeholder="Date" onkeyup="switchVisibility()">
+            <br><br>
+            <input id="submit" type="submit" value="Submit" disabled>
+
+
+            <br><br>
+        </fieldset>
+    </form>
+
+
+</div>
+
+</body>
+
+</html>
